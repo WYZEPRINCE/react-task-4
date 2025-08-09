@@ -7,7 +7,7 @@ import { FaHeart, FaShoppingCart, FaStar } from 'react-icons/fa';
 import ProductCard from "../components/ProductCard";
 import GamePad from "../assets/images/gamepad.png"
 import TV from "../assets/images/tv.png"
-import KeyBoard from "../assets/images/Keyboard.png"
+import KeyBoard from "../assets/images/keyboard.png"
 import IdeaPad from "../assets/images/ideapad.png"
 
 

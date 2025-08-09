@@ -7,7 +7,7 @@ import { Heart, Truck, RotateCcw } from "lucide-react";
 import { FaShoppingCart } from "react-icons/fa";
 import GamePad from "../assets/images/gamepad.png"
 import TV from "../assets/images/tv.png"
-import KeyBoard from "../assets/images/Keyboard.png"
+import KeyBoard from "../assets/images/keyboard.png"
 import ColorSpeaker from "../assets/images/colorspeaker.png"
 import Havic1 from "../assets/images/havic1.png"
 import Havic2 from "../assets/images/havic2.png"
