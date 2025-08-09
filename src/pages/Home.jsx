@@ -28,7 +28,7 @@ import {
 import Jbl from "../assets/images/jbl.png";
 import GamePad from "../assets/images/gamepad.png";
 import TV from "../assets/images/tv.png";
-import KeyBoard from "../assets/images/Keyboard.png";
+import KeyBoard from "../assets/images/keyboard.png";
 import Chair from "../assets/images/chair.png";
 import WhiteApple from "../assets/images/white-apple.png";
 import Ps5 from "../assets/images/ps5.png";
