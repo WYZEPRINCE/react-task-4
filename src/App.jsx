@@ -8,7 +8,7 @@ import SignUp from "./pages/SignUp";
 import Home from "./pages/Home";
 import Contact from "./pages/Contact";
 import About from "./pages/About";
-import WishList from "./pages/Wishlist";
+import WishList from "./pages/WishList";
 import "./App.css";
 import { Provider } from "react-redux";
 import { store } from "./pages/store/store";
