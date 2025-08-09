@@ -2,9 +2,8 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { removeFromWishlist, clearWishlist } from "./store/wishlistSlice";
 import { addToCart } from "./store/cartSlice";
-import { Heart, ShoppingCart, Trash2, ArrowLeft, Star, Eye } from "lucide-react";
-import { FaHeart, FaShoppingCart, FaStar } from 'react-icons/fa';
-import ProductCard from "../components/ProductCard";
+import { Heart, ShoppingCart, Trash2, ArrowLeft, Eye } from "lucide-react";
+import { FaHeart, FaStar } from 'react-icons/fa';
 import GamePad from "../assets/images/gamepad.png"
 import TV from "../assets/images/tv.png"
 import KeyBoard from "../assets/images/keyboard.png"
