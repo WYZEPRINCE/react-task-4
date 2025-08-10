@@ -156,13 +156,25 @@ const Login = () => {
       {/* Success Alert */}
       {showSuccessAlert && <SuccessAlert />}
 
-      <div className="mr-30 flex gap-27 mt-12 mb-30">
-        <img src={OnboardingImage} width={700} alt="OnboardingImage" />
-        <div className="place-self-center">
-          <p className="text-2xl font-medium mb-3">Log in to Exclusive</p>
-          <p className="text-sm mb-10">Enter your details below</p>
+      <div className="flex flex-col md:flex-col lg:flex-row items-center justify-center gap-10 lg:gap-28 mt-6 mb-10 px-4 sm:px-8 md:px-12">
+        {/* Onboarding Image — hidden on mobile */}
+        <img
+          src={OnboardingImage}
+          width={700}
+          alt="OnboardingImage"
+          className="w-full max-w-[350px] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[700px] md:block hidden"
+        />
 
-          {/* Display general error if any */}
+        {/* Form Section */}
+        <div className="w-full md:w-auto max-w-md place-self-center">
+          <p className="text-2xl font-medium mb-3 text-center md:text-left">
+            Log in to Exclusive
+          </p>
+          <p className="text-sm mb-10 text-center md:text-left">
+            Enter your details below
+          </p>
+
+          {/* Error Message */}
           {error && (
             <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded flex items-center gap-2">
               <span className="text-[#DB4444] font-bold">⚠</span>
@@ -173,6 +185,7 @@ const Login = () => {
             </div>
           )}
 
+          {/* Form */}
           <form className="flex flex-col gap-5" onSubmit={formik.handleSubmit}>
             {/* Email Field */}
             <div className="flex flex-col">
@@ -198,14 +211,6 @@ const Login = () => {
                   <span>⚠</span> {emailValidationError || formik.errors.email}
                 </span>
               )}
-              {/* Email format helper */}
-              {formik.values.email &&
-                !formik.errors.email &&
-                !emailValidationError && (
-                  <span className="text-green-500 text-xs mt-1 flex items-center gap-1">
-                    <span>✓</span> Email format looks good
-                  </span>
-                )}
             </div>
 
             {/* Password Field */}
@@ -241,25 +246,18 @@ const Login = () => {
               )}
             </div>
 
-            {/* Login Button and Forgot Password */}
-            <div className="flex gap-25 items-center">
+            {/* Buttons */}
+            <div className="flex flex-col sm:flex-row gap-4 sm:gap-8 items-center sm:items-center">
               <button
                 type="submit"
                 disabled={isLoading || !formik.isValid || emailValidationError}
-                className={`py-3 px-8 rounded-md font-medium transition-all duration-200 ${
+                className={`py-3 px-8 rounded-md font-medium w-full sm:w-auto transition-all duration-200 ${
                   isLoading || !formik.isValid || emailValidationError
                     ? "bg-gray-400 cursor-not-allowed text-white"
                     : "bg-[#DB4444] hover:bg-red-600 text-white"
                 }`}
               >
-                {isLoading ? (
-                  <span className="">
-                    <div className=""></div>
-                    Logging in...
-                  </span>
-                ) : (
-                  "Log in"
-                )}
+                {isLoading ? "Logging in..." : "Log in"}
               </button>
 
               <p
@@ -276,7 +274,7 @@ const Login = () => {
               Don't have an account?
               <span
                 onClick={handleSignUpClick}
-                className="ml-2 underline cursor-pointer transition-colors duration-200 "
+                className="ml-2 underline cursor-pointer transition-colors duration-200"
               >
                 Sign up
               </span>
@@ -284,22 +282,6 @@ const Login = () => {
           </form>
         </div>
       </div>
-
-      {/* <style jsx>{`
-        @keyframes slide-in {
-          from {
-            transform: translateX(100%);
-            opacity: 0;
-          }
-          to {
-            transform: translateX(0);
-            opacity: 1;
-          }
-        }
-        .animate-slide-in {
-          animation: slide-in 0.3s ease-out;
-        }
-      `}</style> */}
     </>
   );
 };

@@ -68,15 +68,25 @@ const SignUp = () => {
   };
 
   return (
-    <div className="mr-30 flex gap-27 mt-12 mb-30">
-      <img src={OnboardingImage} width={700} alt="OnboardingImage" />
-      <div className="place-self-center">
-        <p className="text-2xl font-medium mb-3">Create an account</p>
-        <p className="text-sm mb-10">Enter your details below</p>
+    <div className="flex flex-col md:flex-col lg:flex-row items-center justify-center gap-10 lg:gap-28 mt-6 mb-10 px-4 sm:px-8 md:px-12">
+      {/* Image Section */}
+      <img
+        src={OnboardingImage}
+        alt="Onboarding"
+        className="w-full max-w-[350px] sm:max-w-[500px] md:max-w-[600px] lg:max-w-[700px] md:block hidden"
+      />
 
-        {/* Display general error if any */}
+      {/* Form Section */}
+      <div className="w-full max-w-md place-self-center">
+        <p className="text-xl sm:text-2xl font-medium mb-3 text-center lg:text-left">
+          Create an account
+        </p>
+        <p className="text-sm mb-8 text-center lg:text-left">
+          Enter your details below
+        </p>
+
         {error && (
-          <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+          <div className="mb-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded text-sm">
             {error}
           </div>
         )}
@@ -92,7 +102,6 @@ const SignUp = () => {
               }`}
               type="text"
               name="name"
-              id="name"
               placeholder="Name"
               value={formik.values.name}
               onChange={formik.handleChange}
@@ -115,7 +124,6 @@ const SignUp = () => {
               }`}
               type="email"
               name="email"
-              id="email"
               placeholder="Email or Phone Number"
               value={formik.values.email}
               onChange={formik.handleChange}
@@ -138,7 +146,6 @@ const SignUp = () => {
               }`}
               type="password"
               name="password"
-              id="password"
               placeholder="Password"
               value={formik.values.password}
               onChange={formik.handleChange}
@@ -167,15 +174,15 @@ const SignUp = () => {
           {/* Google Sign Up */}
           <div
             type="button"
-            className="flex items-center justify-center gap-3 border cursor-pointer border-gray-300 rounded-md px-14 py-3 hover:bg-gray-50 transition-colors duration-200"
+            className="flex items-center justify-center gap-3 border cursor-pointer border-gray-300 rounded-md px-6 py-3 hover:bg-gray-50 transition-colors duration-200"
           >
             <img src={SuperG} width={24} alt="Google" />
-            <p>Sign up with Google</p>
+            <p className="text-sm sm:text-base">Sign up with Google</p>
           </div>
 
           {/* Login Link */}
-          <p className="text-center text-md text-[#333]">
-            Already have account?
+          <p className="text-center text-sm sm:text-base text-[#333]">
+            Already have an account?
             <span
               onClick={handleLoginClick}
               className="ml-2 underline cursor-pointer hover:text-blue-600 transition-colors duration-200"
