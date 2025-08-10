@@ -23,7 +23,7 @@ function App() {
         <TopHeader />
         <Header />
         <Routes>
-          <Route path="/"  element={<Home />} />
+          <Route path="/"  end element={<Home />} />
           <Route path="/contact"  element={<Contact />} />
           <Route path="/about" element={<About />} />
           <Route path="/signup" element={<SignUp />} />

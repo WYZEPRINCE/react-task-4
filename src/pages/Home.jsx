@@ -25,6 +25,7 @@ import {
   Truck,
   Shield,
 } from "lucide-react";
+import { Link } from "react-router-dom";
 import Jbl from "../assets/images/jbl.png";
 import GamePad from "../assets/images/gamepad.png";
 import TV from "../assets/images/tv.png";
@@ -214,7 +215,7 @@ const Home = () => {
 
         {/* Product image */}
         <div className="w-35 h-32 m-3 rounded-lg flex items-center justify-center">
-          <img src={product.image} alt={product.name} />
+          <Link to="/productdetails" ><img src={product.image} alt={product.name} /></Link>
         </div>
       </div>
 
