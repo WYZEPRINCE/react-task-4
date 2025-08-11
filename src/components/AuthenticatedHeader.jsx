@@ -16,7 +16,7 @@ const Header = () => {
     };
   return (
     <>
-      <header className="mx-5 md:mx-25 p-4 bg-white ">
+      <header className="sm:mx-5 lg:mx-25 p-4 bg-white ">
         <div className="flex items-center justify-between ">
           {/* Logo */}
           <div className="flex items-center gap-8 ">
@@ -25,7 +25,7 @@ const Header = () => {
             </p>
 
             {/* Navigation - Desktop */}
-            <nav className="hidden md:flex items-center gap-6 ">
+            <nav className="hidden lg:flex items-center gap-6 ">
               <Link
                 to="/"
                 className="text-gray-600 hover:text-gray-900 transition-colors"
@@ -90,17 +90,17 @@ const Header = () => {
             </div>
             {/* Hamburger Menu - Mobile */}
             <div
-              className="md:hidden p-2 text-gray-700 cursor-pointer"
+              className="lg:hidden p-2 text-gray-700 cursor-pointer"
               onClick={toggleMenu}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
             </div>
           </div>
         </div>
-        
+
         {/* Mobile Dropdown */}
         {isMenuOpen && (
-          <div className="md:hidden mt-3 bg-gray-100 rounded-md shadow-md p-4 space-y-3">
+          <div className="lg:hidden mt-3 bg-gray-100 rounded-md shadow-md p-4 space-y-3">
             <Link
               to="/"
               onClick={closeMenu}
@@ -122,23 +122,23 @@ const Header = () => {
             >
               About
             </Link>
-            <Link
+            {/* <Link
               to="/signup"
               onClick={closeMenu}
               className="block text-gray-700 hover:text-gray-900"
             >
               Sign up
-            </Link>
+            </Link> */}
 
             {/* Search bar in mobile dropdown */}
-            <div className="flex items-center bg-white rounded-md px-3 py-2 mt-3">
+            {/* <div className="flex items-center bg-white rounded-md px-3 py-2 mt-3">
               <input
                 type="text"
-                placeholder="Search..."
+                placeholder="What are you looking for"
                 className="bg-transparent text-sm text-gray-600 placeholder-gray-400 outline-none w-full"
               />
               <Search size={18} className="text-gray-500" />
-            </div>
+            </div> */}
           </div>
         )}
       </header>

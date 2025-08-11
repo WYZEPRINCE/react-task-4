@@ -16,7 +16,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="mx-5 md:mx-25 p-4 bg-white">
+      <header className=" sm:mx-5 lg:mx-25 p-4 bg-white">
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-8 ">
@@ -25,7 +25,7 @@ const Header = () => {
             </p>
 
             {/* Navigation - Desktop */}
-            <nav className="hidden md:flex items-center gap-6 ml-25">
+            <nav className="hidden lg:flex items-center gap-6">
               <Link
                 to="/"
                 className="text-gray-600 hover:text-gray-900 transition-colors"
@@ -56,7 +56,7 @@ const Header = () => {
           {/* Search and Actions */}
           <div className="flex items-center gap-4">
             {/* Search Bar */}
-            <div className="hidden md:flex items-center bg-gray-100 rounded-md px-3 py-2">
+            <div className="hidden lg:flex items-center bg-gray-100 rounded-md px-3 py-2">
               <input
                 type="text"
                 placeholder="What are you looking for?"
@@ -89,7 +89,7 @@ const Header = () => {
             </div>
             {/* Hamburger Menu - Mobile */}
             <div
-              className="md:hidden p-2 text-gray-700"
+              className="lg:hidden p-2 text-gray-700"
               onClick={toggleMenu}
             >
               {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -99,7 +99,7 @@ const Header = () => {
 
         {/* Mobile Dropdown */}
                 {isMenuOpen && (
-                  <div className="md:hidden mt-3 bg-gray-50 rounded-md shadow-md p-4 space-y-3">
+                  <div className="lg:hidden mt-3 bg-gray-50 rounded-md shadow-md p-4 space-y-3">
                     <Link
                       to="/"
                       onClick={closeMenu}

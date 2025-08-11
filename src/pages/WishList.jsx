@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { removeFromWishlist, clearWishlist } from "./store/wishlistSlice";
 import { addToCart } from "./store/cartSlice";
@@ -87,7 +88,7 @@ const Wishlist = () => {
       image: product.image
     };
     dispatch(addToCart(cartProduct));
-    console.log(`${product.name} added to cart!`);
+    alert(`${product.name} added to cart!`);
   };
 
   const handleRemoveFromWishlist = (productId) => {
@@ -123,7 +124,7 @@ const Wishlist = () => {
         </div>
 
         {/* Product Image */}
-        <div className="w-35 h-32 m-3 rounded-lg flex items-center justify-center">
+        <div className="w-full md:w-35 h-32 m-3 rounded-lg flex items-center justify-center">
           <img src={product.image} alt={product.name} />
         </div>
 
@@ -183,14 +184,14 @@ const Wishlist = () => {
   );
 
   return (
-    <div className="min-h-screen mb-10 mx-25">
+    <div className="min-h-screen mb-10  md:mx-25">
       {/* Breadcrumb */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto px-4 py-4">
           <div className="text-sm text-gray-600">
             <span>Home</span>
             <span className="mx-2">/</span>
-            <span className="text-black">Wishlist</span>
+            <span className="text-black font-bold">Wishlist</span>
           </div>
         </div>
       </div>
@@ -258,13 +259,13 @@ const Wishlist = () => {
               Save your favorite items by clicking the heart icon on any
               product. They'll appear here for easy access later.
             </p>
-            <button
+            <Link to="/"><button
               onClick={handleContinueShopping}
               className="inline-flex items-center gap-2 px-8 py-3 bg-[#DB4444] text-white rounded-lg hover:bg-red-600 transition-colors duration-200"
             >
               <ArrowLeft size={16} />
               Continue Shopping
-            </button>
+            </button></Link>
           </div>
         )}
 
@@ -284,7 +285,7 @@ const Wishlist = () => {
       </div>
 
       {/* Just for You Section */}
-      <div className="mt-12 mx-25">
+      <div className="mt-12 mx-5 md:mx-12">
         <div className="flex items-center gap-4 mb-6">
           <div className="w-5 h-10 bg-[#DB4444] rounded"></div>
           <span className="text-black-500 font-semibold">Just For You</span>

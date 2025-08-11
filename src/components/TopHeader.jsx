@@ -14,7 +14,7 @@ const TopHeader = () => {
           </span>
         </div>
         {/* Right side - language selector */}
-        <div className="flex items-center space-x-1 text-sm">
+        <div className=" mr-10 flex items-center space-x-1 text-sm">
           <span>English</span>
           <FaChevronDown className="h-4 w-4" />
         </div>

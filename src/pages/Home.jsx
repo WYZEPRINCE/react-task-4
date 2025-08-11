@@ -141,7 +141,7 @@ const Home = () => {
     dispatch(addToCart(cartProduct));
 
     // Optional: Show a toast notification
-    console.log(`${product.name} added to cart!`);
+    alert(`${product.name} added to cart!`);
   };
 
   const handleToggleWishlist = (product) => {
@@ -149,7 +149,7 @@ const Home = () => {
 
     if (isInWishlist) {
       dispatch(removeFromWishlist(product.id));
-      console.log(`${product.name} removed from wishlist!`);
+      alert (`${product.name} removed from wishlist!`);
     } else {
       const wishlistProduct = {
         id: product.id,
@@ -162,7 +162,7 @@ const Home = () => {
         discount: product.discount,
       };
       dispatch(addToWishlist(wishlistProduct));
-      console.log(`${product.name} added to wishlist!`);
+      alert(`${product.name} added to wishlist!`);
     }
   };
 
@@ -207,7 +207,7 @@ const Home = () => {
         {/* Add to cart button (appears on hover) */}
         <div
           onClick={() => handleAddToCart(product)}
-          className="absolute bottom-0 left-0 right-0 bg-black text-white py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center gap-2 hover:bg-gray-800"
+          className="absolute bottom-0 left-0 right-0 bg-black text-white py-2 lg:opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center gap-2 hover:bg-gray-800"
         >
           <FaShoppingCart size={16} />
           Add To Cart
@@ -215,7 +215,9 @@ const Home = () => {
 
         {/* Product image */}
         <div className="w-35 h-32 m-3 rounded-lg flex items-center justify-center">
-          <Link to="/productdetails" ><img src={product.image} alt={product.name} /></Link>
+          <Link to="/productdetails">
+            <img src={product.image} alt={product.name} />
+          </Link>
         </div>
       </div>
 
@@ -249,10 +251,10 @@ const Home = () => {
   );
 
   return (
-    <div className="min-h-screen bg-white w-full px-25">
+    <div className="min-h-screen bg-white w-full px-2 sm:px-10 lg:px-25">
       {/* Sidebar */}
-      <div className="flex gap-8">
-        <div className="w-64 h-full bg-white border-r border-gray-200 p-6">
+      <div className="flex gap-3 md:gap-8">
+        <div className="w-64 h-full bg-white border-r border-gray-200 p-3 md:p-6">
           <nav className="space-y-4">
             <div className="flex items-center justify-between cursor-pointer hover:text-[#DB4444]">
               <span>Woman's Fashion</span>
@@ -287,7 +289,7 @@ const Home = () => {
         {/* Main Content */}
         <div className="w-full">
           {/* Hero Banner */}
-          <div className="relative bg-black text-white mt-10 p-16 mb-8">
+          <div className="relative bg-black text-white md:mt-10 p-5 sm:p-5 lg:p-16 mb-8">
             <div className="max-w-md">
               <div className="flex items-center gap-4 mb-4">
                 <div className="w-10 h-10 rounded-full flex items-center justify-center">
@@ -295,21 +297,21 @@ const Home = () => {
                 </div>
                 <span>iPhone 14 Series</span>
               </div>
-              <h1 className="text-5xl font-bold mb-6">
+              <p className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-6">
                 Up to 10%
                 <br />
                 off Voucher
-              </h1>
+              </p>
               <div className="flex items-center gap-2 text-white underline hover:no-underline cursor-pointer">
                 Shop Now
                 <FaChevronRight size={16} />
               </div>
+              <img
+                className="size-60 sm:size-50 md:absolute left-2/4 lg:size-70 top-0"
+                src={HeroImg}
+                alt=""
+              />
             </div>
-            <img
-              className="absolute left-2/4 size-80 top-0"
-              src={HeroImg}
-              alt=""
-            />
 
             {/* Carousel dots */}
             <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2">
@@ -342,8 +344,8 @@ const Home = () => {
           <span className="text-[#DB4444] font-semibold">Today's</span>
         </div>
 
-        <div className="flex items-center justify-between mb-6">
-          <div className="flex items-center gap-8">
+        <div className="flex items-start md:flex sm:gap-28 md:items-center md:justify-between mb-6">
+          <div className="space-y-5  lg:flex items-center md:gap-8">
             <h2 className="text-4xl font-bold">Flash Sales</h2>
             <Timer />
           </div>
@@ -360,7 +362,7 @@ const Home = () => {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-5 gap-6 mb-8 overflow-x-visible w-[1300px]">
+        <div className="grid grid-cols-2 w-[500px] md:grid md:grid-cols-5 gap-6 mb-8 overflow-x-visible md:w-[1300px]">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
@@ -375,7 +377,7 @@ const Home = () => {
       </div>
 
       {/* Divider */}
-      <hr className="text-gray-300 mx-30" />
+      <hr className="text-gray-300 md:mx-30" />
 
       {/* Product Category Section */}
       <div className="max-full px-6 py-8">
@@ -387,9 +389,9 @@ const Home = () => {
           </div>
 
           <div className="flex items-center justify-between">
-            <h1 className="text-4xl font-bold text-gray-900">
+            <h2 className="text-4xl font-bold text-gray-900">
               Browse By Category
-            </h1>
+            </h2>
             <div className="flex gap-2">
               <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 cursor-pointer">
                 <FaChevronLeft size={20} />
@@ -455,7 +457,7 @@ const Home = () => {
           </button>
         </div>
 
-        <div className="grid grid-cols-5 gap-6 mb-8">
+        <div className="grid grid-cols-2 md:grid md:grid-cols-4 gap-6 mb-8">
           {products.map((product) => (
             <ProductCard key={`best-${product.id}`} product={product} />
           ))}
@@ -463,23 +465,23 @@ const Home = () => {
       </div>
 
       {/* Enhance Music Experience Section */}
-      <div className="relative bg-black text-white rounded-lg p-16 mb-8 mx-6">
+      <div className="relative bg-black text-white rounded-lg p-6 md:p-16 mb-8 mx-6">
         <div className="flex flex-col gap-3 max-w-md">
           <div className="flex items-center gap-4 mb-4">
             <span className="text-green-500">Categories</span>
           </div>
-          <h1 className="text-5xl font-bold mb-6">
+          <h1 className="text-2xl md:text-5xl font-bold mb-6">
             Enhance Your
             <br />
             Music Experience
           </h1>
           <Timer />
-          <div className="bg-green-500 w-1/4 p-2 rounded-sm text-center mt-3 text-white hover:bg-green-600 transition-colors">
+          <div className="bg-green-500 w-full md:w-1/4 p-2 rounded-sm text-center mt-3 text-white hover:bg-green-600 transition-colors">
             Shop Now
           </div>
         </div>
         <img
-          className="absolute left-1/2 size-110 top-0 shadow-2xl shadow-stone-700"
+          className="absolute top-28 left-1/2 sm:left-110 md:left-1/2 size-40  md:size-110 md:top-0 shadow-2xl shadow-stone-700"
           src={Jbl}
           alt=""
         />
@@ -507,7 +509,7 @@ const Home = () => {
           </div>
         </div>
 
-        <div className="grid grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-2 md:grid md:grid-cols-4 gap-6 mb-8">
           {products.map((product) => (
             <ProductCard key={`explore-${product.id}`} product={product} />
           ))}

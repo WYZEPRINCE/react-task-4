@@ -104,7 +104,7 @@ const Cart = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white mx-25">
+    <div className="min-h-screen bg-white md:mx-25">
       {/* Breadcrumb */}
       <div className="px-6 py-4 text-sm text-gray-600">
         <span>Home</span>
@@ -115,7 +115,7 @@ const Cart = () => {
       <div className="px-6 pb-8">
         {/* Cart Header */}
         <div className="mb-6">
-          <h1 className="text-2xl font-bold">Shopping Cart</h1>
+          <h2 className="text-3xl md:text-5xl font-bold">Shopping Cart</h2>
           <p className="text-gray-600">
             {cartItems.length} item{cartItems.length !== 1 ? "s" : ""} in your
             cart
@@ -124,10 +124,10 @@ const Cart = () => {
 
         {/* Cart Table Header */}
         <div className="grid grid-cols-5 gap-6 py-4 border-b border-gray-200 mb-6">
-          <div className="font-medium col-span-2">Product</div>
-          <div className="font-medium text-center">Price</div>
-          <div className="font-medium text-center">Quantity</div>
-          <div className="font-medium text-center">Subtotal</div>
+          <div className="font-bold md:font-medium col-span-2">Product</div>
+          <div className="font-bold md:font-medium text-center">Price</div>
+          <div className="font-bold md:font-medium text-center">Quantity</div>
+          <div className="font-bold md:font-medium text-center">Subtotal</div>
         </div>
 
         {/* Cart Items */}
@@ -165,7 +165,7 @@ const Cart = () => {
 
               {/* Quantity */}
               <div className="flex items-center justify-center">
-                <div className="flex items-center border border-gray-300 rounded overflow-hidden cursor-pointer">
+                <div className="flex flex-col md:flex items-center border border-gray-300 rounded overflow-hidden cursor-pointer">
                   <div
                     onClick={() =>
                       handleQuantityChange(item.id, item.quantity - 1)

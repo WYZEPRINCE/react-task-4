@@ -166,11 +166,11 @@ const Login = () => {
         />
 
         {/* Form Section */}
-        <div className="w-full md:w-auto max-w-md place-self-center">
-          <p className="text-2xl font-medium mb-3 text-center md:text-left">
+        <div className="w-full max-w-md place-self-center">
+          <p className="text-2xl font-medium mb-3 text-center lg:text-left">
             Log in to Exclusive
           </p>
-          <p className="text-sm mb-10 text-center md:text-left">
+          <p className="text-sm mb-10 text-center lg:text-left">
             Enter your details below
           </p>
 

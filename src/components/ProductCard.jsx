@@ -22,7 +22,7 @@ const ProductCard = ({ product, isWishlistView = false }) => {
 
   const handleAddToCart = () => {
     // Add to cart logic here
-    console.log("Adding to cart:", product);
+    alert("Adding to cart:", product);
   };
 
   const renderStars = (rating) => {

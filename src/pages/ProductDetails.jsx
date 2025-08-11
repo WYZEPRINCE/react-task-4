@@ -3,24 +3,23 @@ import { useSelector, useDispatch } from "react-redux";
 import StarRating from "../components/StarRating";
 import { addToCart } from "./store/cartSlice";
 import { increment, decrement, setQuantity } from "./store/counterSlice";
+import {
+  addToWishlist,
+  removeFromWishlist,
+} from "../pages/store/wishlistSlice";
 import { Heart, Truck, RotateCcw } from "lucide-react";
 import { FaShoppingCart } from "react-icons/fa";
-import GamePad from "../assets/images/gamepad.png"
-import TV from "../assets/images/tv.png"
-import KeyBoard from "../assets/images/keyboard.png"
-import ColorSpeaker from "../assets/images/colorspeaker.png"
-import Havic1 from "../assets/images/havic1.png"
-import Havic2 from "../assets/images/havic2.png"
-import Havic3 from "../assets/images/havic3.png"
-import Havic4 from "../assets/images/havic4.png"
-import HavicMain from "../assets/images/havicmain.png"
+import GamePad from "../assets/images/gamepad.png";
+import TV from "../assets/images/tv.png";
+import KeyBoard from "../assets/images/keyboard.png";
+import ColorSpeaker from "../assets/images/colorspeaker.png";
+import Havic1 from "../assets/images/havic1.png";
+import Havic2 from "../assets/images/havic2.png";
+import Havic3 from "../assets/images/havic3.png";
+import Havic4 from "../assets/images/havic4.png";
+import HavicMain from "../assets/images/havicmain.png";
 
-const productImages = [
-  Havic1,
-  Havic2,
-  Havic3,
-  Havic4,
-];
+const productImages = [Havic1, Havic2, Havic3, Havic4];
 
 const relatedProducts = [
   {
@@ -65,9 +64,9 @@ const relatedProducts = [
   },
 ];
 
-
 const ProductDetails = () => {
   const dispatch = useDispatch();
+  const wishlistItems = useSelector((state) => state.wishlist.items);
   const quantity = useSelector((state) => state.counter.quantity);
 
   const handleQuantityChange = (e) => {
@@ -76,19 +75,43 @@ const ProductDetails = () => {
       dispatch(setQuantity(value));
     }
   };
+  const handleToggleWishlist = (product) => {
+      const isInWishlist = wishlistItems.some((item) => item.id === product.id);
+  
+      if (isInWishlist) {
+        dispatch(removeFromWishlist(product.id));
+        alert (`${product.name} removed from wishlist!`);
+      } else {
+        const wishlistProduct = {
+          id: product.id,
+          name: product.name,
+          price: product.price,
+          originalPrice: product.originalPrice,
+          image: product.image,
+          rating: product.rating,
+          reviews: product.reviews,
+          discount: product.discount,
+        };
+        dispatch(addToWishlist(wishlistProduct));
+        alert(`${product.name} added to wishlist!`);
+      }
+    };
+  
+    const isInWishlist = (productId) => {
+      return wishlistItems.some((item) => item.id === productId);
+    };
 
   const handleAddToCart = (product) => {
-      const cartProduct = {
-        id: product.id,
-        name: product.name,
-        price: product.price,
-        image: product.image,
-      };
-      dispatch(addToCart(cartProduct));
-  
-      // Optional: Show a toast notification
-      console.log(`${product.name} added to cart!`);
+    const cartProduct = {
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
     };
+    dispatch(addToCart(cartProduct));
+
+    alert(`${product.name} added to cart!`);
+  };
 
   return (
     <div className="max-w-6xl mx-auto p-6 bg-white">
@@ -106,7 +129,7 @@ const ProductDetails = () => {
             {productImages.map((img, index) => (
               <div
                 key={index}
-                className="w-35 h-35 p-3 border bg-gray-100 border-gray-200 rounded-md overflow-hidden cursor-pointer"
+                className="w-24 h-24 md:w-35 md:h-35 p-3 border bg-gray-100 border-gray-200 rounded-md overflow-hidden cursor-pointer"
               >
                 <img
                   src={img}
@@ -206,13 +229,23 @@ const ProductDetails = () => {
               Buy Now
             </div>
 
-            <div className="p-2 border border-gray-300 rounded hover:border-[#DB4444]">
-              <Heart size={20} />
+            <div
+              onClick={() => handleToggleWishlist()}
+              className="bg-white rounded-md p-2 flex items-center justify-center  hover:bg-red-50 transition-colors border"
+            >
+              <Heart
+                size={24}
+                className={
+                  isInWishlist()
+                    ? "fill-[#DB4444] text-[#DB4444]"
+                    : "text-gray-600"
+                }
+              />
             </div>
           </div>
 
           {/* Delivery Info */}
-          <div className="space-y-6 pt-6 border-2 border-gray-300 rounded-lg px-4 py-6 w-[400px]">
+          <div className="space-y-6 pt-6 border-2 border-gray-300 rounded-lg px-4 py-6 md:w-[400px]">
             <div className="flex items-center gap-3 ">
               <Truck size={20} />
               <div>
