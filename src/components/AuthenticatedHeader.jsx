@@ -20,9 +20,7 @@ const Header = () => {
         <div className="flex items-center justify-between ">
           {/* Logo */}
           <div className="flex items-center gap-8 ">
-            <p className=" text-2xl md:text-3xl  font-bold text-gray-900">
-              Exclusive
-            </p>
+            <Link to="/" ><p className=" text-2xl md:text-3xl  font-bold text-gray-900">Exclusive</p></Link>
 
             {/* Navigation - Desktop */}
             <nav className="hidden lg:flex items-center gap-6 ">

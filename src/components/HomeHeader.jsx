@@ -18,7 +18,7 @@ const Header = () => {
       <header className="sm:mx-5 lg:mx-25 p-4 bg-white ">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <p className=" text-2xl md:text-3xl  font-bold text-gray-900">Exclusive</p>
+          <Link to="/" ><p className=" text-2xl md:text-3xl  font-bold text-gray-900">Exclusive</p></Link>
 
           {/* Navigation - Desktop */}
           <nav className="hidden lg:flex items-center gap-6 ">
@@ -121,14 +121,14 @@ const Header = () => {
             </Link>
 
             {/* Search bar in mobile dropdown */}
-            {/* <div className="flex items-center bg-white rounded-md px-3 py-2 mt-3">
+            <div className="flex items-center bg-white rounded-md px-3 py-2 mt-3">
               <input
                 type="text"
                 placeholder="What are you looking for"
                 className="bg-transparent text-sm text-gray-600 placeholder-gray-400 outline-none w-full"
               />
               <Search size={18} className="text-gray-500" />
-            </div> */}
+            </div>
           </div>
         )}
       </header>

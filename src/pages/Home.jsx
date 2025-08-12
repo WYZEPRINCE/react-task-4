@@ -344,14 +344,14 @@ const Home = () => {
           <span className="text-[#DB4444] font-semibold">Today's</span>
         </div>
 
-        <div className="flex items-start md:flex sm:gap-28 md:items-center md:justify-between mb-6">
-          <div className="space-y-5  lg:flex items-center md:gap-8">
+        <div className="flex md:flex sm:justify-between md:items-center md:justify-between mb-6">
+          <div className="space-y-5 lg:flex items-center md:gap-8">
             <h2 className="text-4xl font-bold">Flash Sales</h2>
-            <Timer />
+            <Timer className="" />
           </div>
 
           {/* Navigation arrows */}
-          <div className="flex gap-2">
+          <div className="flex -ml-12 gap-2">
             <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 cursor-pointer">
               <FaChevronLeft size={20} />
             </div>
@@ -362,7 +362,7 @@ const Home = () => {
         </div>
 
         {/* Products Grid */}
-        <div className="grid grid-cols-2 w-[500px] md:grid md:grid-cols-5 gap-6 mb-8 overflow-x-visible md:w-[1300px]">
+        <div className="grid grid-cols-2  md:grid md:grid-cols-5 gap-6 mb-8 overflow-x-visible md:w-[1350px]">
           {products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
