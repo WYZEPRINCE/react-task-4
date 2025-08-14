@@ -73,7 +73,7 @@ const Cart = () => {
   // Empty cart state
   if (cartItems.length === 0) {
     return (
-      <div className="min-h-screen bg-white">
+      <div className="min-h-screen bg-white ">
         {/* Breadcrumb */}
         <div className="px-6 py-4 text-sm text-gray-600">
           <span>Home</span>
@@ -104,7 +104,7 @@ const Cart = () => {
   }
 
   return (
-    <div className="min-h-screen bg-white md:mx-25">
+    <div className="min-h-screen bg-white lg:mx-25">
       {/* Breadcrumb */}
       <div className="px-6 py-4 text-sm text-gray-600">
         <span>Home</span>
@@ -165,7 +165,7 @@ const Cart = () => {
 
               {/* Quantity */}
               <div className="flex items-center justify-center">
-                <div className="flex flex-col md:flex items-center border border-gray-300 rounded overflow-hidden cursor-pointer">
+                <div className="flex flex-col md:flex md:flex-row items-center border border-gray-300 rounded overflow-hidden cursor-pointer">
                   <div
                     onClick={() =>
                       handleQuantityChange(item.id, item.quantity - 1)

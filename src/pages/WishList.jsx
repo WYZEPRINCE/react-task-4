@@ -184,7 +184,7 @@ const Wishlist = () => {
   );
 
   return (
-    <div className="min-h-screen mb-10  md:mx-25">
+    <div className="min-h-screen mb-10 lg:mx-25">
       {/* Breadcrumb */}
       <div className="bg-white">
         <div className="max-w-7xl mx-auto px-4 py-4">

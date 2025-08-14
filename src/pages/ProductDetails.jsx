@@ -114,7 +114,7 @@ const ProductDetails = () => {
   };
 
   return (
-    <div className="max-w-6xl mx-auto p-6 bg-white">
+    <div className="max-w-6xl mx-5 md:mx-25 mt-10 bg-white">
       {/* Breadcrumb */}
       <div className="text-sm text-gray-500 mb-6">
         Account / Gaming /{" "}
@@ -280,7 +280,7 @@ const ProductDetails = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {relatedProducts.map((product) => (
             <div key={product.id} className="group cursor-pointer">
-              <div className="relative bg-gray-50 rounded mb-3 overflow-hidden">
+              <div className="relative bg-gray-50 rounded mb-3 overflow-hidden place-items-center">
                 {product.discount && (
                   <span className="absolute top-2 left-2 bg-[#DB4444] text-white text-xs px-2 py-1 rounded">
                     {product.discount}
@@ -292,12 +292,12 @@ const ProductDetails = () => {
                 <img
                   src={product.image}
                   alt={product.name}
-                  className="w-full h-48 p-14 object-cover group-hover:scale-105 transition-transform"
+                  className="w-auto h-48 p-10 object-cover group-hover:scale-105 transition-transform items-center-safe"
                 />
 
                 <div
                   onClick={() => handleAddToCart(product)}
-                  className="absolute bottom-0 left-0 right-0 bg-black text-white py-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center gap-2 hover:bg-gray-800"
+                  className="absolute bottom-0 left-0 right-0 bg-black text-white py-2 lg:opacity-0 group-hover:opacity-100 transition-opacity duration-200 flex items-center justify-center gap-2 hover:bg-gray-800"
                 >
                   <FaShoppingCart size={16} />
                   Add To Cart

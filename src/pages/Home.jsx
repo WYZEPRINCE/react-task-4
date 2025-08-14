@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useRef } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import {
   FaChevronLeft,
@@ -130,6 +130,15 @@ const Home = () => {
   const cartItems = useSelector((state) => state.cart.items);
   const wishlistItems = useSelector((state) => state.wishlist.items);
   const wishlistCount = useSelector((state) => state.wishlist.count);
+  const scrollRef = useRef(null);
+
+  const scrollLeft = () => {
+    scrollRef.current.scrollBy({ left: -200, behavior: "smooth" });
+  };
+
+  const scrollRight = () => {
+    scrollRef.current.scrollBy({ left: 200, behavior: "smooth" });
+  };
 
   const handleAddToCart = (product) => {
     const cartProduct = {
@@ -175,7 +184,7 @@ const Home = () => {
   };
 
   const ProductCard = ({ product }) => (
-    <div className="group cursor-pointer">
+    <div className="group cursor-pointer mb-10">
       <div className="relative bg-gray-100 rounded-lg p-8 mb-4 aspect-square flex items-center justify-center">
         {/* Discount badge */}
         <div className="absolute top-3 left-3 bg-[#DB4444] text-white px-2 py-1 rounded text-xs font-semibold">
@@ -253,7 +262,7 @@ const Home = () => {
   return (
     <div className="min-h-screen bg-white w-full px-2 sm:px-10 lg:px-25">
       {/* Sidebar */}
-      <div className="flex gap-3 md:gap-8">
+      <div className="flex gap-3 md:gap-8 mb-10">
         <div className="w-64 h-full bg-white border-r border-gray-200 p-3 md:p-6">
           <nav className="space-y-4">
             <div className="flex items-center justify-between cursor-pointer hover:text-[#DB4444]">
@@ -338,33 +347,44 @@ const Home = () => {
       </div>
 
       {/* Flash Sales Section */}
-      <div className="mb-8 px-6 ">
+      <div className="mb-10 px-6 ">
         <div className="flex items-center gap-4 mb-6">
           <div className="w-5 h-10 bg-[#DB4444] rounded"></div>
           <span className="text-[#DB4444] font-semibold">Today's</span>
         </div>
 
-        <div className="flex md:flex sm:justify-between md:items-center md:justify-between mb-6">
+        <div className="flex justify-between md:flex sm:justify-between md:items-center md:justify-between mb-6">
           <div className="space-y-5 lg:flex items-center md:gap-8">
             <h2 className="text-4xl font-bold">Flash Sales</h2>
             <Timer className="" />
           </div>
 
           {/* Navigation arrows */}
-          <div className="flex -ml-12 gap-2">
-            <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 cursor-pointer">
+          <div className="flex gap-2 mb-4 -ml-12">
+            <div
+              onClick={scrollLeft}
+              className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 cursor-pointer"
+            >
               <FaChevronLeft size={20} />
             </div>
-            <div className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 cursor-pointer">
+            <div
+              onClick={scrollRight}
+              className="w-12 h-12 bg-gray-100 rounded-full flex items-center justify-center hover:bg-gray-200 cursor-pointer"
+            >
               <FaChevronRight size={20} />
             </div>
           </div>
         </div>
 
-        {/* Products Grid */}
-        <div className="grid grid-cols-2  md:grid md:grid-cols-5 gap-6 mb-8 overflow-x-visible md:w-[1350px]">
+        {/* Scrollable Product List */}
+        <div
+          ref={scrollRef}
+          className="flex gap-6 overflow-x-auto scroll-smooth  no-scrollbar mb-10"
+        >
           {products.map((product) => (
-            <ProductCard key={product.id} product={product} />
+            <div key={product.id} className="flex-shrink-0 w-[255px]">
+              <ProductCard product={product} />
+            </div>
           ))}
         </div>
 
@@ -377,7 +397,7 @@ const Home = () => {
       </div>
 
       {/* Divider */}
-      <hr className="text-gray-300 md:mx-30" />
+      <hr className="text-gray-300 md:mx-30 mb-10" />
 
       {/* Product Category Section */}
       <div className="max-full px-6 py-8">
@@ -404,7 +424,7 @@ const Home = () => {
         </div>
 
         {/* Categories Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
+        <div className=" mb-10 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
           {categories.map((category) => {
             const IconComponent = category.icon;
 
@@ -465,7 +485,7 @@ const Home = () => {
       </div>
 
       {/* Enhance Music Experience Section */}
-      <div className="relative bg-black text-white rounded-lg p-6 md:p-16 mb-8 mx-6">
+      <div className=" relative bg-black text-white rounded-lg p-6 md:p-16 mb-10 mx-6">
         <div className="flex flex-col gap-3 max-w-md">
           <div className="flex items-center gap-4 mb-4">
             <span className="text-green-500">Categories</span>
@@ -481,7 +501,7 @@ const Home = () => {
           </div>
         </div>
         <img
-          className="absolute top-28 left-1/2 sm:left-110 md:left-1/2 size-40  md:size-110 md:top-0 shadow-2xl shadow-stone-700"
+          className="absolute top-28 left-1/2 sm:left-110 md:left-1/2 size-40  md:size-60 md:top-50 shadow-2xl shadow-stone-700"
           src={Jbl}
           alt=""
         />
