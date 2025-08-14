@@ -201,20 +201,20 @@ const Wishlist = () => {
         <div className="flex items-center justify-between mb-8">
           <div className="flex items-center gap-3">
             <FaHeart className="text-[#DB4444]" size={24} />
-            <h1 className="text-3xl font-bold text-gray-900">
+            <h1 className=" text-xl sm:text-3xl font-bold text-gray-900">
               Wishlist ({count})
             </h1>
           </div>
 
           {count > 0 && (
             <div className="flex gap-3">
-              <button
+              <div
                 onClick={() => dispatch(clearWishlist())}
                 className="px-4 py-2 text-[#DB4444] border border-red-200 rounded hover:bg-red-50 transition-colors duration-200 flex items-center gap-2"
               >
                 <Trash2 size={16} />
                 Clear All
-              </button>
+              </div>
               <button
                 onClick={handleMoveAllToBag}
                 className="px-6 py-2 bg-black text-white rounded hover:bg-gray-800 transition-colors duration-200 flex items-center gap-2"
