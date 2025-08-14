@@ -215,13 +215,13 @@ const Wishlist = () => {
                 <Trash2 size={16} />
                 Clear All
               </div>
-              <button
+              <div
                 onClick={handleMoveAllToBag}
                 className="px-6 py-2 bg-black text-white rounded hover:bg-gray-800 transition-colors duration-200 flex items-center gap-2"
               >
                 <ShoppingCart size={16} />
                 Move All To Cart
-              </button>
+              </div>
             </div>
           )}
         </div>
